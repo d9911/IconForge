@@ -1,27 +1,20 @@
-const CACHE_NAME = 'iconforge-v1';
+const CACHE_NAME = 'iconforge-v2';
 const urlsToCache = [
   './',
   './index.html',
   './src/style/index.css',
+  './src/style/element.css',
+  './src/script/image-loader.js',
+  './src/script/manifest-generator.js',
   './src/script/index.js',
   './src/script/icon-generator.js',
   './src/manifest.json',
   './src/img/favicon.ico',
   './src/img/icon-16x16.png',
   './src/img/icon-32x32.png',
-  './src/img/icon-48x48.png',
-  './src/img/icon-72x72.png',
-  './src/img/icon-96x96.png',
-  './src/img/icon-128x128.png',
-  './src/img/icon-144x144.png',
-  './src/img/icon-152x152.png',
+  './src/img/icon-180x180.png',
   './src/img/icon-192x192.png',
-  './src/img/icon-256x256.png',
-  './src/img/icon-384x384.png',
   './src/img/icon-512x512.png',
-  './src/img/icon-forge.svg',
-  './src/img/splash-640x1136.png',
-  './src/img/splash-750x1334.png',
   // External libraries
   'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'
 ];

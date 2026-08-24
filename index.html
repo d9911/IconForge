@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IconForge — генератор иконок PWA</title>
     <meta name="description" content="Создавайте favicon и наборы PWA-иконок разных размеров из одного изображения прямо в браузере." />
-    <meta name="theme-color" content="#080b12" />
+    <meta name="theme-color" content="#121212" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="IconForge" />
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="./src/style/index.css" />
     <link rel="stylesheet" href="./src/style/element.css" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="color-scheme" content="dark light" />
   <link rel="canonical" href="https://icon-forge.d9911.org/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="IconForge — генератор иконок PWA" />
@@ -58,6 +58,9 @@
     <a class="skip-link" href="#main-content">Перейти к генератору иконок</a>
     <main class="container" id="main-content" tabindex="-1">
       <header class="header">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить на светлую тему">
+          <span class="theme-toggle__icon" aria-hidden="true">☀️</span>
+        </button>
         <h1>🎨 PWA Icon Generator</h1>
         <p>Создайте полный набор иконок для вашего PWA приложения из одного изображения</p>
       </header>

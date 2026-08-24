@@ -101,5 +101,40 @@ window.PngIcoConverter = PngIcoConverter;
 
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+  const storageKey = 'iconForgeTheme';
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = themeToggle?.querySelector('.theme-toggle__icon');
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+
+  const applyTheme = theme => {
+    const isDark = theme === 'dark';
+    root.dataset.theme = isDark ? 'dark' : 'light';
+
+    if (themeColor) {
+      themeColor.content = isDark ? '#121212' : '#fbfbfb';
+    }
+
+    if (themeToggle) {
+      themeToggle.setAttribute(
+        'aria-label',
+        isDark ? 'Переключить на светлую тему' : 'Переключить на тёмную тему',
+      );
+    }
+
+    if (themeIcon) {
+      themeIcon.textContent = isDark ? '☀️' : '🌙';
+    }
+  };
+
+  const savedTheme = localStorage.getItem(storageKey);
+  applyTheme(savedTheme === 'light' ? 'light' : 'dark');
+
+  themeToggle?.addEventListener('click', () => {
+    const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem(storageKey, nextTheme);
+    applyTheme(nextTheme);
+  });
+
   console.log('PWA Icon Generator initialized');
 });
