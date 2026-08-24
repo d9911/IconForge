@@ -1,52 +1,66 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PWA Icon Generator - IconForge</title>
-    <meta name="description" content="Icon Forge Generator PWA - PWA приложение для создания иконок" />
-    <meta name="theme-color" content="#007bff" />
+    <title>IconForge — генератор иконок PWA</title>
+    <meta name="description" content="Создавайте favicon и наборы PWA-иконок разных размеров из одного изображения прямо в браузере." />
+    <meta name="theme-color" content="#080b12" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="IconForge" />
 
     <!-- PWA Manifest -->
-    <link rel="manifest" href="./src/manifest.json" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./src/img/favicon.ico" />
 
     <!-- Apple Touch Icons -->
-    <link rel="apple-touch-icon" sizes="152x152" href="./src/img/icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="192x192" href="./src/img/icon-192x192.png" />
 
     <!-- Standard Icons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="./src/img/icon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./src/img/icon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="./src/img/icon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="./src/img/icon-192x192.png" />
-
-    <!-- Apple Splash Screens -->
-    <link
-      rel="apple-touch-startup-image"
-      href="./src/img/splash-640x1136.png"
-      media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
-    />
-    <link
-      rel="apple-touch-startup-image"
-      href="./src/img/splash-750x1334.png"
-      media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
-    />
 
     <link rel="stylesheet" href="./src/style/index.css" />
     <link rel="stylesheet" href="./src/style/element.css" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="canonical" href="https://icon-forge.d9911.org/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="IconForge — генератор иконок PWA" />
+  <meta property="og:description" content="Создавайте favicon и наборы PWA-иконок разных размеров из одного изображения прямо в браузере." />
+  <meta property="og:url" content="https://icon-forge.d9911.org/" />
+  <meta property="og:image" content="https://icon-forge.d9911.org/src/img/icon-512x512.png" />
+  <meta property="og:image:alt" content="IconForge logo" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="IconForge — генератор иконок PWA" />
+  <meta name="twitter:description" content="Создавайте favicon и наборы PWA-иконок разных размеров из одного изображения прямо в браузере." />
+  <meta name="twitter:image" content="https://icon-forge.d9911.org/src/img/icon-512x512.png" />
+  <link rel="icon" href="./src/img/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./src/img/icon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./src/img/icon-180x180.png" />
+  <link rel="manifest" href="./src/manifest.json" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "IconForge",
+      "url": "https://icon-forge.d9911.org/",
+      "description": "Создавайте favicon и наборы PWA-иконок разных размеров из одного изображения прямо в браузере.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "inLanguage": [
+        "ru"
+      ],
+      "isAccessibleForFree": true
+    }
+  </script>
   </head>
   <body>
-    <div class="container">
-      <div class="header">
+    <a class="skip-link" href="#main-content">Перейти к генератору иконок</a>
+    <main class="container" id="main-content" tabindex="-1">
+      <header class="header">
         <h1>🎨 PWA Icon Generator</h1>
         <p>Создайте полный набор иконок для вашего PWA приложения из одного изображения</p>
-      </div>
+      </header>
 
       <div class="main-content">
         <!-- Upload Section -->
@@ -54,7 +68,7 @@
           <div class="upload-icon">📁</div>
           <div class="upload-text">Перетащите изображение сюда или нажмите для выбора файла</div>
           <div>
-            <button class="btn" id="selectFileBtn">Выбрать файл</button>
+            <button class="btn" id="selectFileBtn" type="button">Выбрать файл</button>
           </div>
           <input type="file" id="fileInput" class="file-input" accept="image/*" />
         </div>
@@ -148,12 +162,12 @@
           </div>
 
           <!-- Progress Bar -->
-          <div class="progress-bar" id="progressBar" style="display: none">
+          <div class="progress-bar" id="progressBar" style="display: none" role="progressbar" aria-label="Создание иконок">
             <div class="progress-fill" id="progressFill"></div>
           </div>
 
           <!-- Status Messages -->
-          <div id="statusMessage"></div>
+          <div id="statusMessage" role="status" aria-live="polite"></div>
 
           <!-- Generated Icons Grid -->
           <div class="icons-grid" id="iconsGrid"></div>
@@ -171,7 +185,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
 
     <!-- External Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>

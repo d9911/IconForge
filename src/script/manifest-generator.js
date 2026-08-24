@@ -7,8 +7,8 @@ class ManifestGenerator {
       description: "Icon Forge Generator PWA - PWA приложение для создания иконок",
       start_url: "./",
       display: "standalone",
-      background_color: "#ffffff",
-      theme_color: "#007bff",
+      background_color: "#080b12",
+      theme_color: "#080b12",
       orientation: "any",
       scope: "./",
       lang: "ru",
@@ -54,7 +54,7 @@ class ManifestGenerator {
           src: image.path.replace('./', ''),
           sizes: `${size}x${size}`,
           type: "image/png",
-          purpose: "any maskable"
+          purpose: "any"
         });
       }
     });

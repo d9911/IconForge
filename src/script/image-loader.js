@@ -5,11 +5,8 @@ class ImageLoader {
     this.loadedImages = [];
   }
 
-  // Standard icon sizes for PWA
-  static ICON_SIZES = [16, 32, 48, 72, 96, 128, 144, 152, 192, 256, 384, 512];
-  
-  // Additional sizes for splash screens and other purposes
-  static SPLASH_SIZES = [640, 750, 828, 1125, 1242, 1536, 1668, 2048];
+  // Icon files that are shipped with the application.
+  static ICON_SIZES = [16, 32, 180, 192, 512];
 
   /**
    * Automatically load all available icons from the img directory
@@ -27,9 +24,6 @@ class ImageLoader {
     // Load favicon
     loadPromises.push(this.loadImageSafely('./src/img/favicon.ico', 'favicon'));
     
-    // Load SVG icon if available
-    loadPromises.push(this.loadImageSafely('./src/img/icon-forge.svg', 'svg'));
-
     const results = await Promise.allSettled(loadPromises);
     this.loadedImages = results
       .filter(result => result.status === 'fulfilled' && result.value)
