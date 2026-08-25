@@ -55,23 +55,66 @@
   </script>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Перейти к генератору иконок</a>
+    <a class="skip-link" href="#main-content" data-i18n="skip">Перейти к генератору иконок</a>
+    <header class="header">
+      <div class="header-toolbar">
+        <a class="header-brand" href="#main-content" aria-label="IconForge">
+          <img src="./src/img/icon-32x32.png" width="32" height="32" alt="" />
+          <h1>IconForge</h1>
+        </a>
+        <nav class="header-actions" aria-label="Настройки отображения" data-i18n-aria="displaySettings">
+            <div class="language-menu">
+              <label class="sr-only" for="languageSelect" data-i18n="language">Язык</label>
+              <select class="language-select" id="languageSelect" tabindex="-1" aria-hidden="true">
+                <option value="ru">Русский</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+              </select>
+              <button
+                class="language-menu__trigger"
+                id="language-menu-button"
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                aria-controls="language-menu-list"
+              >
+                <span class="language-menu__flag" aria-hidden="true">RU</span>
+                <span class="language-menu__label">Русский</span>
+                <svg class="language-menu__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10.5832 6.00002L7.99657 8.58669L5.4099 6.00002C5.1499 5.74002 4.7299 5.74002 4.4699 6.00002C4.2099 6.26002 4.2099 6.68002 4.4699 6.94002L7.5299 10C7.7899 10.26 8.2099 10.26 8.4699 10L11.5299 6.94002C11.7899 6.68002 11.7899 6.26002 11.5299 6.00002C11.2699 5.74669 10.8432 5.74002 10.5832 6.00002Z" fill="currentColor" /></svg>
+              </button>
+              <div class="language-menu__panel" id="language-menu-list" role="menu" aria-labelledby="language-menu-button" hidden>
+                <button class="language-menu__option" type="button" role="menuitemradio" data-language="ru" aria-checked="true">
+                  <span class="language-menu__flag" aria-hidden="true">RU</span><span>Русский</span><span class="language-menu__check" aria-hidden="true">✓</span>
+                </button>
+                <button class="language-menu__option" type="button" role="menuitemradio" data-language="en" aria-checked="false">
+                  <span class="language-menu__flag" aria-hidden="true">EN</span><span>English</span><span class="language-menu__check" aria-hidden="true">✓</span>
+                </button>
+                <button class="language-menu__option" type="button" role="menuitemradio" data-language="es" aria-checked="false">
+                  <span class="language-menu__flag" aria-hidden="true">ES</span><span>Español</span><span class="language-menu__check" aria-hidden="true">✓</span>
+                </button>
+              </div>
+            </div>
+          <button class="theme-toggle" id="themeToggle" type="button" data-theme-value="dark" aria-label="Тема: тёмная">
+            <span class="theme-toggle__icon" aria-hidden="true">☾</span>
+            <span class="theme-toggle__label">Тёмная</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
     <main class="container" id="main-content" tabindex="-1">
-      <header class="header">
-        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить на светлую тему">
-          <span class="theme-toggle__icon" aria-hidden="true">☀️</span>
-        </button>
-        <h1>🎨 PWA Icon Generator</h1>
-        <p>Создайте полный набор иконок для вашего PWA приложения из одного изображения</p>
-      </header>
+      <section class="header-copy" aria-labelledby="page-heading">
+        <h2 id="page-heading" data-i18n="heading">🎨 PWA Icon Generator</h2>
+        <p data-i18n="subtitle">Создайте полный набор иконок для вашего PWA приложения из одного изображения</p>
+      </section>
 
       <div class="main-content">
         <!-- Upload Section -->
         <div class="upload-section" id="uploadSection">
           <div class="upload-icon">📁</div>
-          <div class="upload-text">Перетащите изображение сюда или нажмите для выбора файла</div>
+          <div class="upload-text" data-i18n="uploadHint">Перетащите изображение сюда или нажмите для выбора файла</div>
           <div>
-            <button class="btn" id="selectFileBtn" type="button">Выбрать файл</button>
+            <button class="btn" id="selectFileBtn" type="button" data-i18n="selectFile">Выбрать файл</button>
           </div>
           <input type="file" id="fileInput" class="file-input" accept="image/*" />
         </div>
@@ -80,12 +123,12 @@
         <div class="preview-section" id="previewSection">
           <!-- Original Image Preview -->
           <div class="original-preview">
-            <h3>📷 Исходное изображение</h3>
+            <h3 data-i18n="originalImageHeading">📷 Исходное изображение</h3>
             <div class="image-container">
-              <img id="originalImage" class="original-image" alt="Исходное изображение" />
+              <img id="originalImage" class="original-image" alt="Исходное изображение" data-i18n-alt="originalImageAlt" />
               <div class="image-placeholder" id="imagePlaceholder">
                 <div class="placeholder-icon">🖼️</div>
-                <div class="placeholder-text">Изображение будет отображено здесь</div>
+                <div class="placeholder-text" data-i18n="imagePlaceholder">Изображение будет отображено здесь</div>
               </div>
             </div>
             <div id="imageInfo"></div>
@@ -94,17 +137,17 @@
           <!-- Controls -->
           <div class="controls">
             <div class="control-group">
-              <label for="appName">Название приложения:</label>
-              <input type="text" id="appName" value="MarkMirror Mobile" placeholder="Название приложения" />
+              <label for="appName" data-i18n="appName">Название приложения:</label>
+              <input type="text" id="appName" value="MarkMirror Mobile" placeholder="Название приложения" data-i18n-placeholder="appNamePlaceholder" />
             </div>
 
             <div class="control-group">
-              <label for="shortName">Короткое название:</label>
-              <input type="text" id="shortName" value="MarkMirror" placeholder="Короткое название" />
+              <label for="shortName" data-i18n="shortName">Короткое название:</label>
+              <input type="text" id="shortName" value="MarkMirror" placeholder="Короткое название" data-i18n-placeholder="shortNamePlaceholder" />
             </div>
 
             <div class="control-group">
-              <label for="themeColor">Цвет темы:</label>
+              <label for="themeColor" data-i18n="themeColor">Цвет темы:</label>
               <div class="color-input-wrapper">
                 <input type="color" id="themeColor" value="#007bff" />
                 <input type="text" id="themeColorPreview" class="color-preview" value="#007bff" readonly />
@@ -112,7 +155,7 @@
             </div>
 
             <div class="control-group">
-              <label for="backgroundColor">Цвет фона:</label>
+              <label for="backgroundColor" data-i18n="backgroundColor">Цвет фона:</label>
               <div class="color-input-wrapper">
                 <input type="color" id="backgroundColor" value="#ffffff" />
                 <input type="text" id="backgroundColorPreview" class="color-preview" value="#ffffff" readonly />
@@ -120,13 +163,13 @@
             </div>
 
             <div class="control-group">
-              <label for="cornerRadius">Скругление углов (%):</label>
+              <label for="cornerRadius" data-i18n="cornerRadius">Скругление углов (%):</label>
               <input type="range" id="cornerRadius" min="0" max="50" value="15" />
               <span id="radiusValue">15%</span>
             </div>
 
             <div class="control-group">
-              <label for="padding">Отступы (%):</label>
+              <label for="padding" data-i18n="padding">Отступы (%):</label>
               <input type="range" id="padding" min="0" max="30" value="10" />
               <span id="paddingValue">10%</span>
             </div>
@@ -137,7 +180,7 @@
                   <input type="checkbox" id="addBackground" checked />
                   <span class="slider"></span>
                 </label>
-                <span class="toggle-label">Добавить фон к иконкам</span>
+                <span class="toggle-label" data-i18n="addBackground">Добавить фон к иконкам</span>
               </div>
             </div>
 
@@ -147,25 +190,25 @@
                   <input type="checkbox" id="useMinimalSet" />
                   <span class="slider"></span>
                 </label>
-                <span class="toggle-label">Минимальный набор размеров</span>
+                <span class="toggle-label" data-i18n="minimalSet">Минимальный набор размеров</span>
               </div>
             </div>
 
             <div class="control-group">
-              <button class="btn btn-secondary" onclick="iconGenerator.resetSettings()">🔄 Сбросить настройки</button>
+              <button class="btn btn-secondary" onclick="iconGenerator.resetSettings()" data-i18n="reset">🔄 Сбросить настройки</button>
               <div class="settings-status" id="settingsStatus" style="display: none;">
-                <small>💾 Настройки сохранены</small>
+                <small data-i18n="saved">💾 Настройки сохранены</small>
               </div>
             </div>
           </div>
 
           <!-- Generate Button -->
           <div style="text-align: center; margin: 2rem 0">
-            <button class="btn btn-success" id="generateBtn" onclick="generateIcons()">🚀 Сгенерировать иконки</button>
+            <button class="btn btn-success" id="generateBtn" onclick="generateIcons()" data-i18n="generate">🚀 Сгенерировать иконки</button>
           </div>
 
           <!-- Progress Bar -->
-          <div class="progress-bar" id="progressBar" style="display: none" role="progressbar" aria-label="Создание иконок">
+          <div class="progress-bar" id="progressBar" style="display: none" role="progressbar" aria-label="Создание иконок" data-i18n-aria="progress">
             <div class="progress-fill" id="progressFill"></div>
           </div>
 
@@ -177,17 +220,21 @@
 
           <!-- Download Actions -->
           <div class="download-actions" id="downloadActions" style="display: none">
-            <h3>📦 Скачать результаты</h3>
-            <button class="btn btn-success" onclick="downloadAllIcons()">📁 Скачать все иконки (ZIP)</button>
-            <button class="btn btn-secondary" onclick="downloadManifest()">📄 Скачать manifest.json</button>
-            <button class="btn btn-secondary" onclick="downloadFavicon()">🌐 Скачать favicon.ico</button>
-            <button class="btn" onclick="copyManifest()">📋 Копировать manifest.json</button>
+            <h3 data-i18n="downloads">📦 Скачать результаты</h3>
+            <button class="btn btn-success" onclick="downloadAllIcons()" data-i18n="downloadAll">📁 Скачать все иконки (ZIP)</button>
+            <button class="btn btn-secondary" onclick="downloadManifest()" data-i18n="downloadManifest">📄 Скачать manifest.json</button>
+            <button class="btn btn-secondary" onclick="downloadFavicon()" data-i18n="downloadFavicon">🌐 Скачать favicon.ico</button>
+            <button class="btn" onclick="copyManifest()" data-i18n="copyManifest">📋 Копировать manifest.json</button>
 
             <!-- Manifest Preview -->
             <div class="manifest-preview" id="manifestPreview"></div>
           </div>
         </div>
       </div>
+      <footer class="app-footer">
+        <span data-i18n="footer">Создание PWA-иконок выполняется локально в браузере.</span>
+        <a href="https://d9911.org/">d9911.org</a>
+      </footer>
     </main>
 
     <!-- External Libraries -->

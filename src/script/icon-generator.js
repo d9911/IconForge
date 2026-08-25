@@ -330,10 +330,11 @@ class IconGenerator {
     };
     reader.readAsDataURL(file);
 
+    const t = window.iconForgeI18n?.t ?? (value => value);
     imageInfo.innerHTML = `
-            <p><strong>Размер:</strong> ${img.width} × ${img.height} px</p>
-            <p><strong>Файл:</strong> ${file.name}</p>
-            <p><strong>Размер файла:</strong> ${this.formatFileSize(file.size)}</p>
+            <p><strong>${t('Размер:')}</strong> ${img.width} × ${img.height} px</p>
+            <p><strong>${t('Файл:')}</strong> ${file.name}</p>
+            <p><strong>${t('Размер файла:')}</strong> ${this.formatFileSize(file.size)}</p>
         `;
   }
 
@@ -352,7 +353,7 @@ class IconGenerator {
   showStatus(message, type = 'info') {
     const statusDiv = document.getElementById('statusMessage');
     statusDiv.className = `status-message status-${type}`;
-    statusDiv.textContent = message;
+    statusDiv.textContent = window.iconForgeI18n?.t(message) ?? message;
     statusDiv.style.display = 'block';
 
     if (type === 'success' || type === 'info') {
@@ -449,10 +450,11 @@ class IconGenerator {
     const displayCtx = displayCanvas.getContext('2d');
     displayCtx.drawImage(canvas, 0, 0, 80, 80);
 
+    const downloadLabel = window.iconForgeI18n?.t('📥 Скачать') ?? '📥 Скачать';
     iconItem.innerHTML = `
             <div class="icon-size">${size}×${size}</div>
             <button class="btn btn-secondary" onclick="iconGenerator.downloadSingleIcon(${size})">
-                📥 Скачать
+                ${downloadLabel}
             </button>
         `;
 
