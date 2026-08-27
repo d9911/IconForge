@@ -1,196 +1,50 @@
-# 🎨 IconForge
-"One image, every icon you need"
-##  PWA Icon Generator
+English | [Español](README.es.md) | [Русский](README.ru.md)
 
-Мощный инструмент для создания полного набора иконок PWA приложения из одного изображения.
+# IconForge
 
-## ✨ Возможности
+## Purpose
 
-### 🚀 PWA (Progressive Web App)
-- **Офлайн работа** - полностью функционально без интернета
-- **Установка** - устанавливается как нативное приложение
-- **Автоматическое кэширование** - быстрая загрузка ресурсов
-- **Адаптивный дизайн** - отлично работает на всех устройствах
-- **Умная загрузка изображений** - автоматически подключает все иконки
+IconForge is a browser-based tool for creating a PWA icon set and a favicon from one user-supplied image.
 
-### 🖼️ Поддержка форматов
-- **SVG** - векторная графика (рекомендуется)
-- **PNG** - растровые изображения с прозрачностью
-- **JPEG** - фотографии и сложные изображения
+## Web address
 
-### 📐 Автоматическая генерация размеров
-- **16×16, 32×32** - Favicon для браузеров + favicon.ico
-- **48×48, 72×72, 96×96** - Android Chrome
-- **128×128, 144×144, 152×152** - Android/Windows tiles
-- **192×192, 384×384, 512×512** - PWA стандарт
+<https://icon-forge.d9911.org/>
 
-### 🎛️ Настройки
-- **Скругление углов** (0-50%) - для современного дизайна
-- **Отступы** (0-30%) - внутренние отступы изображения
-- **Цвет фона** - фон иконки
-- **Цвет темы** - для PWA манифеста
+## Verified capabilities
 
-### 📦 Экспорт
-- **ZIP архив** - все иконки + manifest.json + favicon.ico + README
-- **Отдельные файлы** - скачивание по одному
-- **manifest.json** - готовый PWA манифест
-- **favicon.ico** - готовый favicon для браузеров
-- **Копирование в буфер** - быстрое копирование кода
+- Select or drag an image into the page, then generate PNG icons on canvases.
+- Configure the application name, short name, theme and background colors, corner radius, padding, background, and full or minimal icon set.
+- Generate the full set at 16, 32, 48, 72, 96, 128, 144, 152, 192, 256, 384, and 512 pixels, or the minimal set at 16, 32, 180, 192, and 512 pixels.
+- **Minimal-set note:** the generated manifest shortcut references `icons/icon-96x96.png`, which the minimal preset does not create. For a self-contained manifest/ZIP, use the full set or add a 96×96 icon manually.
+- Download individual PNGs, a `favicon.ico`, a generated `manifest.json`, or a ZIP archive; the manifest can also be copied to the clipboard.
+- Store generator settings in browser `localStorage`.
+- Include a web manifest and register `sw.js`, whose cache list contains the application files and the JSZip URL. This describes the shipped implementation only; browser support and availability of cached resources still determine its behavior.
 
-## 📱 Установка PWA
+## Usage
 
-### На мобильных устройствах:
-- **iOS Safari**: Нажмите кнопку "Поделиться" → "На экран Домой"
-- **Android Chrome**: Нажмите меню → "Добавить на главный экран"
+1. Add an image by choosing a file or dropping one onto the upload area.
+2. Adjust the icon and manifest settings, then select **Generate icons**.
+3. Download the needed files individually, download the ZIP archive, or copy/download the generated manifest.
 
-### На десктопе:
-- **Chrome/Edge**: Нажмите иконку установки в адресной строке
-- **Firefox**: Меню → "Установить это приложение"
+## Local development and build
 
-### Запуск локального сервера:
-```bash
-# Python 3
-python -m http.server 8000
+The repository has no tracked package manifest, lockfile, or project-local build configuration. It is a static application: serve the repository through a local HTTP server when testing service-worker behavior. No project-local installation or build command is defined.
 
-# Node.js
-npx http-server
+## Structure
 
-# PHP
-php -S localhost:8000
-```
+- `index.html` is the application document and registers the service worker.
+- `src/script/` contains image loading, icon generation, manifest generation, and shared browser logic.
+- `src/style/` contains the page styles; `src/img/` contains the shipped icons.
+- `src/manifest.json` defines the app manifest, and `sw.js` contains the cache strategy.
 
-## 🚀 Использование
+## Technologies and runtime dependencies
 
-### 1. Подготовка изображения
-- **Рекомендуемый размер**: 512×512px или больше
-- **Формат**: SVG (лучше всего) или PNG высокого качества
-- **Содержимое**: простой логотип или иконка
-- **Фон**: прозрачный или однотонный
+The app uses browser HTML, CSS, JavaScript, Canvas, File/Blob, Clipboard, `localStorage`, Web App Manifest, and Service Worker APIs. JSZip 3.10.1 is loaded from cdnjs at runtime for ZIP creation. No Node.js dependency configuration is tracked.
 
-### 2. Загрузка
-- Перетащите файл в область загрузки
-- Или нажмите "Выбрать файл"
-- Поддерживается drag & drop
+## License
 
-### 3. Настройка
-- **Название приложения** - полное название
-- **Короткое название** - для иконки на рабочем столе
-- **Цвет темы** - основной цвет приложения
-- **Цвет фона** - фон иконок
-- **Скругление** - радиус углов (0-50%)
-- **Отступы** - внутренние отступы (0-30%)
+Distribution and license terms are in [LICENSE](LICENSE), including the repository's additional project-specific terms.
 
-### 4. Генерация
-- Нажмите "🚀 Сгенерировать иконки"
-- Дождитесь завершения процесса
-- Просмотрите результат
+## Author
 
-### 5. Скачивание
-- **ZIP архив** - все файлы сразу
-- **manifest.json** - только манифест
-- **favicon.ico** - только favicon
-- **Отдельные иконки** - по кнопке у каждой
-
-## 📁 Структура результата
-
-```
-pwa-icons.zip
-├── icons/
-│   ├── icon-16x16.png
-│   ├── icon-32x32.png
-│   ├── icon-48x48.png
-│   ├── icon-72x72.png
-│   ├── icon-96x96.png
-│   ├── icon-128x128.png
-│   ├── icon-144x144.png
-│   ├── icon-152x152.png
-│   ├── icon-192x192.png
-│   ├── icon-256x256.png
-│   ├── icon-384x384.png
-│   └── icon-512x512.png
-├── favicon.ico
-├── manifest.json
-└── README.md
-```
-
-## 🔧 Интеграция в проект
-
-### HTML (в `<head>`)
-```html
-<!-- PWA Manifest -->
-<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#007bff">
-
-<!-- Favicon -->
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png">
-
-<!-- Apple Touch Icons -->
-<link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png">
-<link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png">
-```
-
-### Service Worker (кеширование)
-```javascript
-const CACHE_NAME = 'app-icons-v1';
-const ICON_URLS = [
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png',
-  '/manifest.json'
-];
-
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(ICON_URLS))
-  );
-});
-```
-
-## 🎯 Рекомендации
-
-### Для лучшего качества:
-1. **Используйте SVG** - масштабируется без потери качества
-2. **Простой дизайн** - избегайте мелких деталей
-3. **Контрастные цвета** - хорошо видны на любом фоне
-4. **Квадратное соотношение** - 1:1 для всех размеров
-
-### Для PWA:
-1. **Обязательные размеры**: 192×192 и 512×512
-2. **Манифест** - добавьте в корень проекта
-3. **Service Worker** - для офлайн работы
-4. **HTTPS** - обязательно для PWA
-
-## 🛠️ Технические детали
-
-### Поддерживаемые браузеры:
-- ✅ Chrome 80+
-- ✅ Firefox 75+
-- ✅ Safari 13+
-- ✅ Edge 80+
-
-### Зависимости:
-- **JSZip** - создание ZIP архивов
-- **Canvas API** - обработка изображений
-- **File API** - загрузка файлов
-
-### Ограничения:
-- Максимальный размер файла: 10MB
-- Поддерживаемые форматы: SVG, PNG, JPEG, WebP
-- Генерация происходит в браузере (офлайн)
-
-## 🔗 Ссылки
-
-- [Демонстрация](demo.html) - примеры и инструкции
-- [MarkMirror Mobile](../index.html) - основное приложение
-- [PWA Checklist](https://web.dev/pwa-checklist/) - требования PWA
-- [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) - документация
-
-## 📄 Лицензия
-
-Этот инструмент является частью проекта MarkMirror Mobile и распространяется под той же лицензией.
-
----
-
-**Создано для MarkMirror Mobile** 🚀
+The repository copyright notice identifies Denis Gutsuliak (`d9911.org`), 2024–2025.
