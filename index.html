@@ -22,17 +22,17 @@
     <link rel="stylesheet" href="./src/style/element.css" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="color-scheme" content="dark light" />
-  <link rel="canonical" href="https://icon-forge.d9911.org/" />
+  <link rel="canonical" href="https://icon.d9911.org/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="IconForge — генератор иконок PWA" />
   <meta property="og:description" content="Создавайте favicon и наборы PWA-иконок разных размеров из одного изображения прямо в браузере." />
-  <meta property="og:url" content="https://icon-forge.d9911.org/" />
-  <meta property="og:image" content="https://icon-forge.d9911.org/src/img/icon-512x512.png" />
+  <meta property="og:url" content="https://icon.d9911.org/" />
+  <meta property="og:image" content="https://icon.d9911.org/src/img/icon-512x512.png" />
   <meta property="og:image:alt" content="IconForge logo" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="IconForge — генератор иконок PWA" />
   <meta name="twitter:description" content="Создавайте favicon и наборы PWA-иконок разных размеров из одного изображения прямо в браузере." />
-  <meta name="twitter:image" content="https://icon-forge.d9911.org/src/img/icon-512x512.png" />
+  <meta name="twitter:image" content="https://icon.d9911.org/src/img/icon-512x512.png" />
   <link rel="icon" href="./src/img/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="./src/img/icon-32x32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="./src/img/icon-180x180.png" />
@@ -42,7 +42,7 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "IconForge",
-      "url": "https://icon-forge.d9911.org/",
+      "url": "https://icon.d9911.org/",
       "description": "Создавайте favicon и наборы PWA-иконок разных размеров из одного изображения прямо в браузере.",
       "applicationCategory": "DesignApplication",
       "operatingSystem": "Any",
@@ -57,12 +57,12 @@
   <body>
     <a class="skip-link" href="#main-content" data-i18n="skip">Перейти к генератору иконок</a>
     <header class="header">
-      <div class="header-toolbar">
+      <nav class="header-toolbar">
         <a class="header-brand" href="#main-content" aria-label="IconForge">
           <img src="./src/img/icon-32x32.png" width="32" height="32" alt="" />
           <h1>IconForge</h1>
         </a>
-        <nav class="header-actions" aria-label="Настройки отображения" data-i18n-aria="displaySettings">
+        <nav class="header-actions" role="group" aria-label="Настройки отображения" data-i18n-aria="displaySettings">
             <div class="language-menu">
               <label class="sr-only" for="languageSelect" data-i18n="language">Язык</label>
               <select class="language-select" id="languageSelect" tabindex="-1" aria-hidden="true">
@@ -125,7 +125,7 @@
           <div class="original-preview">
             <h3 data-i18n="originalImageHeading">📷 Исходное изображение</h3>
             <div class="image-container">
-              <img id="originalImage" class="original-image" alt="Исходное изображение" data-i18n-alt="originalImageAlt" />
+              <img id="originalImage" class="original-image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Исходное изображение" data-i18n-alt="originalImageAlt" />
               <div class="image-placeholder" id="imagePlaceholder">
                 <div class="placeholder-icon">🖼️</div>
                 <div class="placeholder-text" data-i18n="imagePlaceholder">Изображение будет отображено здесь</div>
